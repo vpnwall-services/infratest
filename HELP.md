@@ -29,6 +29,7 @@ https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/
 
 CLOUD - AWS - MIGRATION
 https://serverguy.com/cloud/aws-migration/
+https://medium.freecodecamp.org/docker-easy-as-build-run-done-e174cc452599?gi=c320bae7fcb0
 
 MYSQL - DOCKER - BACKUP
 https://github.com/deitch/mysql-backup
