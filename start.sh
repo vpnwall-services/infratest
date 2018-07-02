@@ -5,29 +5,58 @@
 
 # AWS Migrator
 # This tool aim to simplify the migration from
-# standard vps install of wordrpress to AWS instances
+# standard vps install of wordpress to AWS instances
 # with high-availability, security and monitoring in mind
 
 # Requirements to launch this tool ?
-# NONE !
+# ANSIBLE !
 
-banner(){
-echo -e "AWS Migrator for epresspack.com"
-#curl -fsSL https://get.docker.com/ | sh
-echo -e "Say you launch this script with toto.epresspack.com as parameter"
-echo -e "like : ./start.sh toto.epresspack.com"
-echo -e "you must have a toto.epresspack.com folder where start.sh exists"
-echo -e "and have two files in that folder"
-echo -e "a plugin.txt file with all the plugin names from the previous install"
-echo -e ""
+deployment_to_swarm(){
+cat << EOF > /tmp/$WEbSITE_NAME.docker.yaml
+docker swarm init
+EOF
 }
 
-if [ -z  ]
+banner(){
+clear
+echo -e "-----------------------------------------------------"
+echo -e "AWS Migrator for epresspack.com"
+#curl -fsSL https://get.docker.com/ | sh
+echo -e "Say you launch this script with example.com as parameter"
+echo -e "like : ./start.sh example.com"
+echo -e "you must have a example.com folder where start.sh resides"
+echo -e "and have two files in that folder"
+echo -e "a plugins.txt file with all the plugins names from the previous install"
+echo -e "and a requirements.txt file where all ubuntu depandancies and their versions"
+echo -e "are listed and ip address of AWS EC2 instance, one line for each for both files"
+echo -e "here's an example of requirements.txt file"
+echo -e "-----------------------------------------------------"
+echo -e "php7.0        "
+echo -e "apache2       "
+echo -e "apache2-utils "
+echo -e "mysql-client  "
+echo -e "mysql-server  "
+echo -e "IP_ADDRESS=192.168.0.1"
+echo -e "-----------------------------------------------------"
+
+echo -e "Example: ./start.sh example.com"
+echo -e "with a example.com folder"
+echo -e "and requirements.txt file and a plugins.txt file inside it"
+echo -e ""
+
+echo -e "-----------------------------------------------------"
+
+}
+
+if [ -z $WEBSITE_ --advertise-addr $IP_ADDRESS
+
 then
-	break
-elif
-	break
-else
 	banner
-	docker swarm init --advertise-addr 192.168.137.200
+else
+	if [ -z requirements.txt || plugins.txt ]
+	then
+		break
+	else
+		banner
+	fi
 fi
